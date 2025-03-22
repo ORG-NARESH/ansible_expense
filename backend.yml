@@ -50,11 +50,10 @@
        group: expense
        mode: '0775'
 
-    - name: install mysql
+    - name: install mysql server
       ansible.builtin.yum:
-        name: http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+        name: mysql-server
         state: present
-      when: ansible_os_family == "RedHat"
 
     - name: injecting schema
       ansible.builtin.shell: mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
