@@ -18,9 +18,9 @@
         path: /app
         state: directory
 
-    - name: Git checkout
-      ansible.builtin.git:
-        repo: 'https://expense-web-app.s3.amazonaws.com/backend.zip'
+    - name: Download file with checksum url (sha256)
+      ansible.builtin.get_url:
+        url: https://expense-web-app.s3.amazonaws.com/backend.zip
         dest: /tmp/backend.zip
 
     - name: Unarchive
