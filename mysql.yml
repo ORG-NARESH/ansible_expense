@@ -10,7 +10,6 @@
   - name:  service restart
     ansible.builtin.service:
        name: mysqld
-       enable: true
        state: started
 
   - name: setting mysql root password
