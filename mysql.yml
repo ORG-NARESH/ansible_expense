@@ -1,0 +1,19 @@
+- name: install
+  hosts:
+  tasks:
+  - name: install mysql server
+    ansible.builtin.yum:
+      name: http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+      state: present
+    when: ansible_os_family == "RedHat"
+   
+  - name:  service restart
+    ansible.builtin.service:
+       name: mysqld
+       enable: true
+       state: started
+
+  - name: setting mysql root password
+    ansible.builtin.service: mysql_secure_installation --set-root-pass ExpenseApp@1
+
+   
