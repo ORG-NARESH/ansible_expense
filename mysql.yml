@@ -1,5 +1,5 @@
 - name: install
-  hosts:
+  hosts: mysql
   tasks:
   - name: install mysql server
     ansible.builtin.yum:
