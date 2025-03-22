@@ -1,5 +1,5 @@
 - name: configuring frontend app
-  hosts: all
+  hosts: frontend
   become: true
   tasks:
 
