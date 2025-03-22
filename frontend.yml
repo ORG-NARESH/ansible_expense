@@ -19,10 +19,10 @@
       path: /usr/share/nginx/html
       state: absent
 
-   - name: Git checkout
-     ansible.builtin.git:
-      repo: 'https://expense-web-app.s3.amazonaws.com/frontend.zip'
-      dest: /tmp/frontend.zip
+   - name: Download file with checksum url (sha256)
+     ansible.builtin.get_url:
+       url: https://expense-web-app.s3.amazonaws.com/frontend.zip
+       dest: /tmp/frontend.zip
 
    - name: create directory
      ansible.builtin.file:
