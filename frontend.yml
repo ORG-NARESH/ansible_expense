@@ -1,5 +1,6 @@
 - name: configuring frontend app
   hosts: all
+  become: true
   tasks:
 
    - name: Installing nginx server as front end
