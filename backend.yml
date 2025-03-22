@@ -55,10 +55,23 @@
         name: mysql-server
         state: present
 
-    - name: injecting schema
-      ansible.builtin.shell: mysql -h 172.31.42.80 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+    - name: Installing pre-req package for schema injection
+      ansible.builtin.pip:
+        name: 
+        - PyMySQL
+        - cryptography
+      executable: pip3.11
+
+    - name: Schema Injection
+      community.mysql.mysql_db:
+        name: all
+        state: import
+        target: /app/schema/backend.sql 
+        login_host: 172.31.42.80
+        login_user: root
+        login_password: ExpenseApp@1
     
-    - name: Restart service cron on centos, in all cases, also issue daemon-reload to pick up config changes
+    - name: Restart service 
       ansible.builtin.systemd_service:
        state: restarted
        daemon_reload: true
