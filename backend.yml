@@ -58,9 +58,9 @@
     - name: Installing pre-req package for schema injection
       ansible.builtin.pip:
         name: 
-        - PyMySQL
-        - cryptography
-      executable: pip3.11
+         - PyMySQL
+         - cryptography
+        executable: pip3.11
 
     - name: Schema Injection
       community.mysql.mysql_db:
