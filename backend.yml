@@ -60,6 +60,7 @@
         name: 
          - PyMySQL
          - cryptography
+         - MySQL-python
         executable: pip3.11
 
     - name: Schema Injection
