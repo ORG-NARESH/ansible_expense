@@ -9,9 +9,10 @@
       ansible.builtin.shell: dnf module disable nodejs -y
 
     - name: Installing nodejs server as front end
-      ansible.builtin.dnf:
+      ansible.builtin.package:
         name: nodejs
         state: present
+        version: 20.10.0
 
     - name: create local user account
       ansible.builtin.user:
@@ -70,7 +71,7 @@
         name: all
         state: import
         target: /app/schema/backend.sql 
-        login_host: 172.31.42.80
+        login_host: 172.31.36.100
         login_user: root
         login_password: ExpenseApp@1
     
