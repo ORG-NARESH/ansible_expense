@@ -8,11 +8,11 @@
     - name: disable nodejs disable module
       ansible.builtin.shell: dnf module disable nodejs -y
 
-    - name: Installing nodejs server as front end
+    - name: Installing nodejs server as backend
       ansible.builtin.package:
         name: nodejs
         state: present
-        version: 20.10.0
+        
 
     - name: create local user account
       ansible.builtin.user:
